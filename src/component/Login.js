@@ -9,6 +9,7 @@ import {auth} from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { User_Avtar } from '../utils/constant';
 
 
 const Login = () => {
@@ -53,7 +54,7 @@ const Login = () => {
 
     updateProfile(user, {
         displayName: nameValue, 
-        photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ydu5p_ghVOdoTEYRXju0rC6U9VwH261Whw&s"
+        photoURL: User_Avtar
       }).then(() => {
         // Profile updated!
         const {uid, email, displayName, photoURL} = auth.currentUser;
@@ -64,7 +65,7 @@ const Login = () => {
                 displayName: displayName, 
                 photoURL: photoURL
             }));
-        navigate("/browse")
+        // navigate("/browse")
 
       }).catch((error) => {
         // An error occurred
@@ -91,11 +92,7 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-
-    
-    navigate("/browse")
-    // ...
+   
   })
   .catch((error) => {
     const errorCode = error.code;

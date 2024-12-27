@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //Everything is happening two times in local(console) - strict mode
+  // React does extra re-rendering to check some inconsistency btw the calls, only happen in developer code
   <React.StrictMode>
     <App />
   </React.StrictMode>
